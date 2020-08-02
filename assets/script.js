@@ -1,11 +1,6 @@
 $(document).ready(function () {
     //show current day and time
-    var currentHour = moment().hours()
-    console.log(currentHour);
-    var currentHourEl = parseInt(currentHour);
-
-    var currentDay = moment().format('LLLL');
-    $("#current-day").text(currentDay)
+   $("#currentDay").text(moment().format("MMMM Do YYYY, h:mm:ss a"));
 
     // save button click event: when button is clicked, description saves
     $(".saveBtn").on("click", function(){
@@ -30,6 +25,18 @@ $(document).ready(function () {
     $("#6pm .description").val(localStorage.getItem("6PM"));
 
 
+    // timekeeper/tracker function here
+    function timeTracker() {
+        var currentHour = moment().hour();
+
+        // loop through each hour: select each hour and loop
+        $(".hour-block").each(function () {
+            var timeBlock = parseInt($(this).attr("id").split("hour")[1]);
+            console.log(timeBlock, currentHour);
+        })
+    }
+
+    timeTracker();
 });
 
 
@@ -40,7 +47,7 @@ $(document).ready(function () {
 
 // conditional statements to create different colors for current, past, and future, time blocks
 
-// loop through each hour: select each hour and loop
+
 // loop through each hour element dibv that is storing time and check against current time
 
 // textArea.addClass("present")
