@@ -33,6 +33,22 @@ $(document).ready(function () {
         $(".hour-block").each(function () {
             var timeBlock = parseInt($(this).attr("id").split("hour")[1]);
             console.log(timeBlock, currentHour);
+
+            // statements for moving past the time blocks to make them different colors
+            if (timeBlock === currentHour) {
+                $(this).removeClass("past");
+                $(this).addClass("present");
+                $(this).removeClass("future");
+            } else if (timeBlock < currentHour) {
+                $(this).addClass("past");
+                $(this).removeClass("present");
+                $(this).removeClass("future");
+            } else {
+                $(this).removeClass("past");
+                $(this).removeClass("present");
+                $(this).addClass("future");
+            }
+
         })
     }
 
@@ -48,7 +64,7 @@ $(document).ready(function () {
 // conditional statements to create different colors for current, past, and future, time blocks
 
 
-// loop through each hour element dibv that is storing time and check against current time
+
 
 // textArea.addClass("present")
 
