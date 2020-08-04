@@ -26,7 +26,7 @@ $(document).ready(function () {
     $("#hour-16 .description").val(localStorage.getItem("4PM"));
     $("#hour-17 .description").val(localStorage.getItem("5PM"));
     $("#hour-18 .description").val(localStorage.getItem("6PM"));
-    }
+    };
     
 
     // timekeeper/tracker function here
@@ -40,7 +40,7 @@ $(document).ready(function () {
             console.log(currentHour, hourBlock); 
 
 
-            // statements for moving past the time blocks to make them different colors
+            // statements for the time blocks to make them different colors
             if (hourBlock < currentHour) {
                 $(this).addClass("past");
                
