@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    //show current day and time
+    //show current day and time in header
     $("#currentDay").text(moment().format("MMMM Do YYYY, hh:mm:ss a"));
 
 
@@ -38,7 +38,7 @@ $(document).ready(function () {
         // loop through each hour: select each hour and loop
         $(".time-block").each(function () {
 
-            var hourBlock = parseInt($(this).attr("id").split("hour")[1]);
+            var hourBlock = parseInt($(this).attr("id").split("-")[1]);
             console.log(currentHour, hourBlock); 
 
 
