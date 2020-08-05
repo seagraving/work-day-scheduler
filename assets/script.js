@@ -2,11 +2,12 @@ $(document).ready(function () {
     //show current day and time
     $("#currentDay").text(moment().format("MMMM Do YYYY, hh:mm:ss a"));
 
+
     // save button click event: when button is clicked, description saves
     $(".saveBtn").on("click", function () {
-
-        var description = $(this).siblings(".description").val();
         var time = $(this).parent().attr("id");
+        var description = $(this).siblings(".description").val();
+        
 
         // set items to local storage
         localStorage.setItem(time, description);
@@ -14,8 +15,8 @@ $(document).ready(function () {
     });
 
     // save/load descriptions of time blocks on local storage to stay even after refreshing page
-    
-    function getItems() {
+
+
     $("#hour-9 .description").val(localStorage.getItem("9AM"));
     $("#hour-10 .description").val(localStorage.getItem("10AM"));
     $("#hour-11 .description").val(localStorage.getItem("11AM"));
@@ -26,12 +27,13 @@ $(document).ready(function () {
     $("#hour-16 .description").val(localStorage.getItem("4PM"));
     $("#hour-17 .description").val(localStorage.getItem("5PM"));
     $("#hour-18 .description").val(localStorage.getItem("6PM"));
-    };
+    
     
 
     // timekeeper/tracker function here
     function timeTracker() {
-        var currentHour = moment().hour();
+        var time = moment();
+        var currentHour = time.hour();
 
         // loop through each hour: select each hour and loop
         $(".time-block").each(function () {
@@ -46,19 +48,19 @@ $(document).ready(function () {
                
             }
             else if (hourBlock === currentHour) {
-                $(this).removeClass("past");
+                // $(this).removeClass("past");
                 $(this).addClass("present");
 
             }
             else {
-                $(this).removeClass("present");
-                $(this).removeClass("past");
+                // $(this).removeClass("present");
+                // $(this).removeClass("past");
                 $(this).addClass("future");
             }
 
         })
     }
-        getItems();
+    
     timeTracker();
 });
 
